@@ -1,6 +1,5 @@
 (ns dog.auth
   (:require [dog.dynamite :as d]
-            [dog.config :as c]
             [cemerick.friend.credentials :as creds]
             [clojure.java.jdbc :as jdbc]
             [clj-time.core :as time]
