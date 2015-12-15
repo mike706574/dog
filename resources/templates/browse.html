@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/index" class="navbar-brand">mike's stuff</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li><a href="/admin/browse">browse</a></li>
+            <li><a href="/admin/create">create</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="header">Posts: Page {{page-number}}</h1>
+    
+    <div id="app">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12">
+          <!-- Pager -->
+          {% if post-count > 0 %}
+          <ul class="pager">
+            {% if previous-page %}
+            <li class="previous">
+              <a href="/admin/browse?page={{previous-page}}">Newer Posts &larr;</a>
+            </li>
+            {% endif %}
+            {% if next-page %}
+            <li class="next">
+              <a href="/admin/browse?page={{next-page}}">Older Posts &rarr;</a>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+          {% if post-count > 0 %}
+          <table class="table table-striped">
+            <tbody>
+              {% for post in posts %}
+              <tr>
+                <td><strong>{{post.title}}</strong><em> by {{post.user}}</em></td>
+                <td>{{post.created}}</td>
+                <td><a href="/admin/edit/{{post.id}}">Edit <i class="fa fa-edit"></i></a></td>
+                <td><a href="#" onclick="return deletePost({{post.id}})">Delete <i class="fa fa-remove"></i></a></td>
+              </tr>
+              {% endfor %}
+            <tbody>
+          </table>
+          
+          {% else %}
+          <h2>No posts!</h2>  
+          {% endif %}
+
+          <!-- Pager -->
+          {% if post-count > 0 %}
+          <ul class="pager">
+            {% if previous-page %}
+            <li class="previous">
+              <a href="/admin/browse?page={{previous-page}}">Newer Posts &larr;</a>
+            </li>
+            {% endif %}
+            {% if next-page %}
+            <li class="next">
+              <a href="/admin/browse?page={{next-page}}">Older Posts &rarr;</a>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script type="text/javascript">
+      function deletePost(id) {
+        console.log( id );
+        $.ajax({url: '/admin/post/' + id,
+                type: 'DELETE',
+                success: function() {
+                  location.reload();
+                }});
+        return false;
+      }
+    </script>
+  </body>
+</html>
