@@ -7,6 +7,7 @@ stuff used:
   * [ring](https://github.com/ring-clojure)
   * [compojure](https://github.com/weavejester/compojure)
   * [selmer](https://github.com/yogthos/Selmer)
+  * [friend](https://github.com/cemerick/friend)
   * [reagent](https://github.com/reagent-project)
   * [startbootstrap-clean-blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog)
 
