@@ -1,22 +1,14 @@
 # dog
 
-basic blog
+A blog?
 
-stuff used:
-  * [clojure](https://github.com/clojure)
-  * [ring](https://github.com/ring-clojure)
-  * [compojure](https://github.com/weavejester/compojure)
-  * [selmer](https://github.com/yogthos/Selmer)
-  * [friend](https://github.com/cemerick/friend)
-  * [reagent](https://github.com/reagent-project)
-  * [startbootstrap-clean-blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog)
+## Copyright and License
 
-## building and running
+The use and distribution terms for this software are covered by the
+[Eclipse Public License 1.0] which can be found in the file
+epl-v10.html at the root of this distribution. By using this software
+in any fashion, you are agreeing to be bound by the terms of this
+license. You must not remove this notice, or any other, from this
+software.
 
-backend
-  * dev: dog.repl/start-server
-  * prod: lein install
-
-frontend
-  * dev: lein with-profile <profile> figwheel
-  * prod: lein with-profile production compile
+[Eclipse Public License 1.0]: http://opensource.org/licenses/eclipse-1.0.php
